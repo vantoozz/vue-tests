@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <link rel="stylesheet" href="/css/app.css" type="text/css">
+</head>
+<body>
+
+<div class="container">
+    <div id="tasks">
+        <div v-show="remaining.length">
+            <h1>Tasks [{{ '{{ ' }} remaining.length }}]</h1>
+
+            <ol class="list-group">
+                <li v-repeat="task: tasks | inProcess" class="list-group-item">
+                    <span v-on="dblclick: editTask(task)">{{ '{{ ' }} task.body }}</span>
+                    <button v-on="click: removeTask(task)">&#10007;</button>
+                    <button v-on="click: toggleCompleteStatus(task)">&#10004;</button>
+                </li>
+            </ol>
+        </div>
+        <form v-on="submit: addTask">
+            <div class="form-group">
+                <input v-model="newTask" v-el="newTask" class="form-control" placeholder="I wanna ..."/>
+            </div>
+            <button class="btn btn-primary">Add task</button>
+            <button v-on="click: completeAll" class="btn btn-default">Complete all</button>
+        </form>
+        <div v-if="completions.length">
+            <h2>Completed [{{ '{{ ' }} completions.length }}]</h2>
+            <ol class="list-group">
+                <li v-repeat="task: tasks | filterBy true in completed" class="list-group-item">
+                    <span>{{ '{{ ' }} task.body }}</span>
+                    <button v-on="click: toggleCompleteStatus(task)">&#10007;</button>
+                </li>
+            </ol>
+            <button v-on="click: removeCompleted" class="btn btn-danger">Remove completed</button>
+        </div>
+        <hr>
+        <pre>{{ '{{ ' }} $data | json }}</pre>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

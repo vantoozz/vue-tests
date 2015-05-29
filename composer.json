@@ -1,0 +1,13 @@
+{
+  "name": "vantoozz/vue",
+  "authors": [
+    {
+      "name": "Ivan Nikitin",
+      "email": "vantoozz@gmail.com"
+    }
+  ],
+  "require": {
+    "filp/whoops": "~1",
+    "twig/twig": "~1"
+  }
+}

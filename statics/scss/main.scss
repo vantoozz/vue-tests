@@ -1,0 +1,19 @@
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+#tasks {
+  margin: 1em;
+  li {
+    button {
+      font-weight: bold;
+
+      float: right;
+
+      padding: 0;
+      margin-left: 1em;
+
+      color: red;
+      border: 0;
+      background: none;
+    }
+  }
+}
